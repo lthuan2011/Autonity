@@ -1,6 +1,6 @@
 # Autonity
 
-Twitter: https://twitter.com/autonity_
+Twitter: https://twitter.com/autonity_/
 
 Discord: https://discord.com/invite/autonity
 
