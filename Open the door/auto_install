@@ -1,1 +1,58 @@
+sudo apt update && apt upgrade -y
+sudo apt install git curl wget -y
+sudo apt install make clang pkg-config libssl-dev build-essential -y
+sudo apt install pipx -y
+pipx install --force https://github.com/autonity/aut/releases/download/v0.4.0.dev0/aut-0.4.0.dev0-py3-none-any.whl
+pipx ensurepath
+source ~/.bashrc
+
+mkdir autonity-client && cd autonity-client 
+
+wget https://github.com/autonity/autonity/releases/download/v0.12.2/autonity-linux-amd64-0.12.2.tar.gz
+
+tar -xzf autonity-linux-amd64-0.12.2.tar.gz
+
+rm -rf autonity-linux-amd64-0.12.2.tar.gz
+
+sudo cp -r autonity /usr/local/bin/autonity
+
+autonity version
+
+mkdir autonity-chaindata
+
+cd  $HOME
+
+your_ip="$(curl ifconfig.me)"
+sudo tee /etc/systemd/system/autonityd.service > /dev/null << EOF
+[Unit]
+Description=Autonityd Node
+After=network-online.target
+StartLimitIntervalSec=0
+[Service]
+User=$USER
+Restart=always
+RestartSec=3
+LimitNOFILE=65535
+ExecStart=autonity \
+    --datadir ${HOME}/autonity-client/autonity-chaindata  \
+    --piccadilly  \
+    --http  \
+    --http.addr 0.0.0.0 \
+    --http.api aut,eth,net,txpool,web3,admin  \
+    --http.vhosts \* \
+    --ws  \
+    --ws.addr 0.0.0.0 \
+    --ws.api aut,eth,net,txpool,web3,admin  \
+    --nat extip:$your_ip \
+    
+
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable autonityd
+sudo systemctl restart autonityd
+sudo journalctl -u autonityd -f -o cat
 
