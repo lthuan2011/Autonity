@@ -3,7 +3,7 @@ sudo apt install git curl wget -y
 sudo apt install make clang pkg-config libssl-dev build-essential -y
 sudo apt install pipx -y
 #pipx install --force https://github.com/autonity/aut/releases/download/v0.4.0.dev0/aut-0.4.0.dev0-py3-none-any.whl
-pipx install --force git+https://github.com/autonity/aut.git
+#pipx install --force git+https://github.com/autonity/aut.git
 pipx ensurepath
 source ~/.bashrc
 
