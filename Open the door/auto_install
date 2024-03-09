@@ -6,17 +6,11 @@ sudo apt install pipx -y
 #pipx install --force git+https://github.com/autonity/aut.git
 pipx ensurepath
 source ~/.bashrc
-
 mkdir autonity-client && cd autonity-client 
-
-wget https://github.com/autonity/autonity/releases/download/v0.12.2/autonity-linux-amd64-0.12.2.tar.gz
-
-tar -xzf autonity-linux-amd64-0.12.2.tar.gz
-
-rm -rf autonity-linux-amd64-0.12.2.tar.gz
-
+wget https://github.com/autonity/autonity/releases/download/v0.13.0/autonity-linux-amd64-0.13.0.tar.gz
+tar -xzf autonity-linux-amd64-0.13.0.tar.gz
+rm -rf autonity-linux-amd64-0.13.0.tar.gz
 sudo cp -r autonity /usr/local/bin/autonity
-
 autonity version
 
 mkdir autonity-chaindata
