@@ -17,10 +17,22 @@ autonity version
 mkdir autonity-chaindata
 
 cd  $HOME
-wget https://github.com/lthuan2011/Autonity/raw/main/Onboard%20validator/ethkey
-sudo chmod +x ethkey
-sudo mv ethkey /usr/local/bin
+ver="1.21.3" && \
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
+sudo rm -rf /usr/local/go && \
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
+rm "go$ver.linux-amd64.tar.gz" && \
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
+go version
 
+git clone https://github.com/autonity/autonity.git autonity1
+cd autonity1
+make all
+mv build/bin/ethkey /usr/local/bin
+cd  $HOME
+rm -rf $HOME/autonity1
+ethkey --version
 your_ip="$(curl ifconfig.me)"
 sudo tee /etc/systemd/system/autonityd.service > /dev/null << EOF
 [Unit]
