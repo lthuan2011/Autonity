@@ -11,6 +11,11 @@ aut account new --keyfile ./piccadilly-keystore/wallet.key
 If you already have wallet before
 **Upload wallet.key to folder: piccadilly-keystore**
 
+Check wallet 
+```
+aut account info
+```
+
 ## Install Oracle
 
 ```
