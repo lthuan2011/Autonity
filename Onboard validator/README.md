@@ -14,7 +14,7 @@ If you already have wallet before
 ## Install Oracle
 
 ```
-aut account new --keyfile ./piccadilly-keystore/oracle.key
+aut account new --keyfile ./piccadilly-keystore/oracle.key > ./piccadilly-keystore/oracle.txt
 ```
 #### change xxx is pass of oracle
 ```
