@@ -11,7 +11,11 @@ mkdir piccadilly-keystore && chmod +x piccadilly-keystore && cd $HOME
 ```
 cp -r $HOME/autonity-client/autonity-chaindata/autonity/autonitykeys $HOME/piccadilly-keystore/
 ```
-Upload wallet.key to folder: piccadilly-keystore
+```
+aut account new --keyfile ./piccadilly-keystore/wallet.key
+```
+If you already have wallet before
+**Upload wallet.key to folder: piccadilly-keystore**
 
 ## Install Oracle
 
