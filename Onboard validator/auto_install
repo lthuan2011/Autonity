@@ -62,6 +62,14 @@ ExecStart=autonity \
 WantedBy=multi-user.target
 EOF
 
+cd  $HOME
+
+sudo tee .autrc > /dev/null << EOF
+[aut]
+rpc_endpoint=http://127.0.0.1:8545
+keyfile=/root/piccadilly-keystore/wallet.key
+EOF
+
 sudo systemctl daemon-reload
 sudo systemctl enable autonityd
 sudo systemctl restart autonityd
