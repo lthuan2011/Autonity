@@ -18,6 +18,7 @@ mkdir autonity-chaindata
 
 cd  $HOME
 wget https://github.com/lthuan2011/Autonity/raw/main/Onboard%20validator/ethkey
+sudo chmod +x ethkey
 sudo mv ethkey /usr/local/bin
 
 your_ip="$(curl ifconfig.me)"
