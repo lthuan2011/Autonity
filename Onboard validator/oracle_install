@@ -28,3 +28,5 @@ ExecStart=autoracle \
 [Install]
 WantedBy=multi-user.target
 EOF
+
+echo "Install Oracle OK"
