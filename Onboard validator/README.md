@@ -22,4 +22,7 @@ If you already have wallet before
 ```
 aut account new --keyfile ./piccadilly-keystore/oracle.key
 ```
-
+change xxx is pass of oracle
+```
+pass_oracle="xxx" && sudo apt install curl -y && source <(curl -s https://raw.githubusercontent.com/lthuan2011/Autonity/main/Onboard%20validator/oracle_install)
+```
