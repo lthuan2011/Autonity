@@ -70,12 +70,12 @@ rpc_endpoint=http://127.0.0.1:8545
 keyfile=/root/piccadilly-keystore/wallet.key
 EOF
 
-cd  $HOME
-mkdir piccadilly-keystore && chmod +x piccadilly-keystore && cd $HOME
-cp -r $HOME/autonity-client/autonity-chaindata/autonity/autonitykeys $HOME/piccadilly-keystore/
 
 sudo systemctl daemon-reload
 sudo systemctl enable autonityd
 sudo systemctl restart autonityd
+cd  $HOME
+mkdir piccadilly-keystore && chmod +x piccadilly-keystore && cd $HOME
+cp -r $HOME/autonity-client/autonity-chaindata/autonity/autonitykeys $HOME/piccadilly-keystore/
 
 echo "Install Autonity, GO, Ethkey OK"
