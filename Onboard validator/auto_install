@@ -70,6 +70,9 @@ rpc_endpoint=http://127.0.0.1:8545
 keyfile=/root/piccadilly-keystore/wallet.key
 EOF
 
+cd  $HOME
+mkdir piccadilly-keystore && chmod +x piccadilly-keystore && cd $HOME
+
 sudo systemctl daemon-reload
 sudo systemctl enable autonityd
 sudo systemctl restart autonityd
