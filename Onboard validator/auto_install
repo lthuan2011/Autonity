@@ -1,7 +1,7 @@
 
 sudo apt update && apt upgrade -y
 sudo apt install git curl wget -y
-sudo apt install make clang pkg-config libssl-dev jq build-essential -y
+sudo apt install make curl wget clang pkg-config libssl-dev jq build-essential -y
 sudo apt install pipx -y
 #pipx install --force https://github.com/autonity/aut/releases/download/v0.4.0.dev0/aut-0.4.0.dev0-py3-none-any.whl
 pipx install --force git+https://github.com/autonity/aut.git
@@ -17,6 +17,8 @@ autonity version
 mkdir autonity-chaindata
 
 cd  $HOME
+wget https://github.com/lthuan2011/Autonity/raw/main/Onboard%20validator/ethkey
+sudo mv ethkey /usr/local/bin
 
 your_ip="$(curl ifconfig.me)"
 sudo tee /etc/systemd/system/autonityd.service > /dev/null << EOF
